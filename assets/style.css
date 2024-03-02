@@ -14,3 +14,9 @@
 .pause-button{
   display: none;
 }
+
+.time{
+  display: flex;
+  width: 40%;
+  justify-content: space-around;
+}
