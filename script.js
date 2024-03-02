@@ -8,6 +8,8 @@ function formatTime (seconds){
 }
 
 const updateProgress = () => {
+  let totalTime = document.querySelector(".total-time");
+  totalTime.textContent = formatTime(Math.floor(music.duration));
   let currentTime = document.querySelector(".current-time");
   currentTime.textContent = formatTime(Math.floor(music.currentTime));
 }
