@@ -1,5 +1,16 @@
 const music = document.querySelector("audio");
 
+jsmediatags.read(music.src, {
+  onSuccess: function(tag){
+    var tags = tag.tags;
+    console.log(tags.tittle)
+  },
+  onError: function(error) {
+       // Função a ser executada em caso de erro
+       console.log("não funcionou")
+     }
+});
+
 function formatTime (seconds){
   let fieldMinutes = Math.floor(seconds / 60);
   let fieldSeconds = seconds % 60;
@@ -8,6 +19,8 @@ function formatTime (seconds){
 }
 
 const updateProgress = () => {
+  let bar = document.querySelector(".progress-class");
+  bar.style.width = Math.floor((music.currentTime / music.duration) * 100) + "%"
   let totalTime = document.querySelector(".total-time");
   totalTime.textContent = formatTime(Math.floor(music.duration));
   let currentTime = document.querySelector(".current-time");
